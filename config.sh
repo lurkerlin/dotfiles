@@ -1,30 +1,19 @@
 #!/bin/bash
 
-# 检查用户目录是否存在
-if [ -d "$HOME" ]; then
-    # 复制.vimrc文件
-    if [ -f ".vimrc" ]; then
-        cp .vimrc "$HOME/"
-        echo ".vimrc 文件已复制到用户目录。"
-    else
-        echo ".vimrc 文件不存在。"
-    fi
+# 定义要复制的配置文件和文件夹列表
+config_items=(".vimrc" ".bashrc" ".zshrc" ".gitconfig" ".config")
 
-    # 复制.bashrc文件
-    if [ -f ".bashrc" ]; then
-        cp .bashrc "$HOME/"
-        echo ".bashrc 文件已复制到用户目录。"
-    else
-        echo ".bashrc 文件不存在。"
-    fi
+# 获取脚本当前所在目录
+script_dir=$(dirname "$0")
 
-    # 复制.zshrc文件
-    if [ -f ".zshrc" ]; then
-        cp .zshrc "$HOME/"
-        echo ".zshrc 文件已复制到用户目录。"
+# 遍历配置项列表
+for item in "${config_items[@]}"; do
+    # 检查脚本目录中是否存在文件或文件夹
+    if [ -e "$script_dir/$item" ]; then
+        # 使用 -R 选项复制文件或文件夹回用户家目录
+        cp -R "$script_dir/$item" "$HOME/"
+        echo "$item copy to $HOME"
     else
-        echo ".zshrc 文件不存在。"
+        echo "$script_dir/$item 不存在。"
     fi
-else
-    echo "用户目录不存在或不可访问。"
-fi
+done

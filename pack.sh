@@ -8,12 +8,13 @@ script_dir=$(dirname "$0")
 
 # 遍历配置项列表
 for item in "${config_items[@]}"; do
-    # 检查脚本目录中是否存在文件或文件夹
-    if [ -e "$script_dir/$item" ]; then
-        # 使用 -R 选项复制文件或文件夹回用户家目录
-        cp -R "$script_dir/$item" "$HOME/"
-        echo "$item copy to $HOME"
+    # 检查用户家目录中是否存在文件或文件夹
+    if [ -e "$HOME/$item" ]; then
+        # 使用 -R 选项复制文件或文件夹到脚本所在目录
+        cp -R "$HOME/$item" "$script_dir/"
+        echo "$item packed up to $script_dir"
     else
-        echo "$script_dir/$item 不存在。"
+        echo "$HOME/$item 不存在。"
     fi
 done
+

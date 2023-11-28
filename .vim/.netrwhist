@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/lurkerlin/.nvm'
+let g:netrw_dirhist_6='/Users/lurkerlin'
+let g:netrw_dirhist_5='/Users'
+let g:netrw_dirhist_4='/Users/lurkerlin'
+let g:netrw_dirhist_3='/Users/lurkerlin/.nvm'
+let g:netrw_dirhist_2='/Users/lurkerlin/.nvm/alias'
+let g:netrw_dirhist_1='/Users/lurkerlin/.nvm'
+let g:netrw_dirhist_0='/Users/lurkerlin/.vim'
+let g:netrw_dirhist_9='/Users/lurkerlin'
+let g:netrw_dirhist_8='/bin'

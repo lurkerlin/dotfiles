@@ -17,22 +17,9 @@ set encoding=utf8
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-"  run sh/python3
-map <C-r> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-    exe "w"
-    if &filetype == 'sh'
-        :!time bash %
-    elseif &filetype == 'python'
-        exec "!time python3 %"
-    elseif &filetype == 'go'
-        exec "!time go run %"
-    endif
-endfunc
-
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim',{'branch':'release'}
+" Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -64,12 +51,6 @@ Plug 'airblade/vim-gitgutter'
 " markdown 插件
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim',{ 'do': { -> mkdp#util#install() } }
-
-" go 主要插件
-Plug 'fatih/vim-go', { 'tag': '*' }
-
-" go 中的代码追踪，输入 gd 就可以自动跳转
-Plug 'dgryski/vim-godef'
 
 " 可以在 vim 中使用 tab 补全
 Plug 'vim-scripts/SuperTab'

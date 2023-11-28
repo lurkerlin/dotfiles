@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 定义要复制的配置文件和文件夹列表
-config_items=(".vimrc" ".bashrc" ".zshrc" ".gitconfig" ".config")
+config_items=(".vimrc" ".bashrc" ".zshrc" ".gitconfig" ".config" ".vim")
 
 # 获取脚本当前所在目录
 script_dir=$(dirname "$0")
